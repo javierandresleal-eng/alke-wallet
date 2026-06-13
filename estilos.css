@@ -1,0 +1,300 @@
+/* ==========================================================================
+   🎨 1. VARIABLES GLOBALES (Estética Dashboard Oscuro)
+   ========================================================================== */
+:root {
+    --fondo-principal: #040814;
+    --fondo-panel: #0b1429;
+    --fondo-tarjetas: rgba(15, 23, 42, 0.92);
+    --texto-principal: #eff2ff;
+    --texto-secundario: #94a3b8;
+    --texto-muted: #cbd5e1;
+    --dorado-armada: #fbbf24;
+    --verde-accion: #22c55e;
+    --rojo-accion: #f87171;
+    --blanco-puro: #ffffff;
+    --borde-tarjeta: rgba(148, 163, 184, 0.16);
+    --sombra-panel: rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   🌙 2. PALETA PARA MODO OSCURO (Se activa agregando .dark-mode al body)
+   ========================================================================== */
+body.dark-mode {
+    --fondo-principal: #020612;
+    --fondo-panel: #0a1222;
+    --fondo-tarjetas: rgba(12, 18, 34, 0.95);
+    --texto-principal: #eff2ff;
+    --texto-secundario: #94a3b8;
+    --texto-muted: #d1d5db;
+    --dorado-armada: #fbbf24;
+    --verde-accion: #22c55e;
+    --rojo-accion: #f87171;
+    --borde-tarjeta: rgba(148, 163, 184, 0.16);
+    --sombra-panel: rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   ⚓ 3. ESTILOS BASE Y ADAPTACIÓN AUTOMÁTICA
+   ========================================================================== */
+body {
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at top left, rgba(251, 191, 36, 0.09), transparent 25%),
+                radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.08), transparent 20%),
+                var(--fondo-principal) !important;
+    color: var(--texto-principal) !important;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.page-footer {
+    padding: 1rem 0;
+    width: 100%;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+    background: rgba(9, 17, 33, 0.92);
+    color: rgba(203, 213, 225, 0.8) !important;
+}
+
+@media (max-width: 767.98px) {
+    .page-footer {
+        font-size: 0.8rem;
+        padding: 0.85rem 0;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a, button, input, select, textarea {
+    transition: all 0.2s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .h6 {
+    color: var(--texto-principal) !important;
+}
+
+p, label, small, span, li {
+    color: var(--texto-muted) !important;
+}
+
+body:not(.dark-mode) p,
+body:not(.dark-mode) label,
+body:not(.dark-mode) small,
+body:not(.dark-mode) span,
+body:not(.dark-mode) li {
+    color: var(--texto-secundario) !important;
+}
+
+.login-card {
+    background: rgba(8, 16, 32, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    padding: 36px;
+    max-width: 520px;
+}
+
+/* Enlaces dorados */
+.link-dorado {
+    color: var(--dorado-armada) !important;
+    text-decoration: none;
+    font-weight: 700;
+}
+.link-dorado:hover {
+    color: #fcd34d !important;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   🚀 4. COMPONENTES DE LA WALLET (Estética Dashboard)
+   ========================================================================== */
+.navbar-armada {
+    background: rgba(9, 17, 33, 0.98) !important;
+    border: none !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+.navbar-armada .navbar-brand,
+.navbar-armada .nav-link,
+.navbar-armada .nav-link.active {
+    color: var(--texto-principal) !important;
+}
+.navbar-armada .nav-link:hover {
+    color: var(--dorado-armada) !important;
+}
+
+#btnTemaToggle {
+    color: var(--texto-principal) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+#btnTemaToggle:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.balance-card {
+    background: linear-gradient(145deg, rgba(11, 21, 45, 0.96), rgba(17, 27, 47, 0.94));
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 32px;
+    padding: 32px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+.balance-card span,
+.balance-card p,
+.balance-card small {
+    color: rgba(226, 232, 240, 0.8) !important;
+}
+.balance-card h2 {
+    color: var(--dorado-armada) !important;
+}
+
+.action-card {
+    background: rgba(9, 17, 33, 0.96) !important;
+    border-radius: 28px;
+    padding: 28px;
+    border: 1px solid rgba(148, 163, 184, 0.12) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+.list-group-item.transaccion-item,
+.transaccion-item {
+    background: rgba(16, 25, 44, 0.95) !important;
+    border: 1px solid rgba(148, 163, 184, 0.10) !important;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.form-control,
+.form-select {
+    background-color: rgba(15, 23, 42, 0.92) !important;
+    color: var(--texto-principal) !important;
+    border: 1px solid rgba(148, 163, 184, 0.16) !important;
+}
+.form-control::placeholder {
+    color: rgba(148, 163, 184, 0.8) !important;
+}
+
+.input-group-text {
+    background-color: rgba(15, 23, 42, 0.92) !important;
+    border: 1px solid rgba(148, 163, 184, 0.16) !important;
+    color: var(--texto-principal) !important;
+}
+
+.btn-armada {
+    background: linear-gradient(135deg, #facc15 0%, #f59e0b 100%) !important;
+    color: #07111f !important;
+    border: none !important;
+    box-shadow: 0 15px 30px rgba(251, 191, 36, 0.18);
+}
+
+.btn-success {
+    background-color: #22c55e !important;
+    border-color: #16a34a !important;
+}
+
+.btn-outline-secondary {
+    color: var(--texto-principal) !important;
+    border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+.btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.bento-item {
+    background: rgba(9, 17, 33, 0.96) !important;
+    border: 1px solid rgba(148, 163, 184, 0.12) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bento-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25) !important;
+}
+
+.bento-item h4,
+.bento-item h5 {
+    color: var(--texto-principal) !important;
+}
+.bento-item p {
+    color: var(--texto-secundario) !important;
+}
+
+body:not(.dark-mode) .text-white {
+    color: var(--texto-principal) !important;
+}
+body:not(.dark-mode) .text-white-50 {
+    color: var(--texto-secundario) !important;
+    opacity: 1 !important;
+}
+
+body:not(.dark-mode) .btn-outline-light,
+body:not(.dark-mode) .btn-outline-light:hover,
+body:not(.dark-mode) .btn-outline-light:focus {
+    color: var(--texto-principal) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    background-color: transparent !important;
+}
+
+body:not(.dark-mode) .navbar-toggler.text-white {
+    color: var(--texto-principal) !important;
+}
+
+body:not(.dark-mode) #btnTemaToggle {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    color: var(--texto-principal) !important;
+}
+
+body:not(.dark-mode) .form-control,
+body:not(.dark-mode) .form-select,
+body:not(.dark-mode) .input-group-text {
+    color: var(--texto-principal) !important;
+}
+
+..login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.login-page main.container {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.login-page .login-card {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Centrar vistas: asegurar que el contenedor principal esté centrado
+   ========================================================================== */
+main.container, .container {
+    max-width: 1100px; /* ancho contenido central */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ajuste para pantallas pequeñas: mantener padding consistente */
+@media (max-width: 767px) {
+    main.container, .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
